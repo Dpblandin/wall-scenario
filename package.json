@@ -1,0 +1,13 @@
+{
+  "name": "wall-scenario",
+  "version": "1.0.0",
+  "description": "Internal scenario base",
+  "author": "David Pascaud Blandin <dav.pascaud@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dpblandin/wall-scenario.git"
+  },
+  "jsnext:main": "src/wall.js",
+  "module": "src/wall.js"
+}

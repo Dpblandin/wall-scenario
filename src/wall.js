@@ -1,10 +1,10 @@
 import Scenario from './Scenario';
 import Screenable from './mixins/ScreenComponent'
-import HasWidgets from './mixins/WidgetComponent'
+import ScreenableWidget from './mixins/WidgetComponent'
 
 export {
     Screenable,
-    HasWidgets,
+    ScreenableWidget,
 }
 
 export default Scenario;

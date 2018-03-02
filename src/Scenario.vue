@@ -12,13 +12,7 @@
 </template>
 
 <script>
-    import eventHub from '../lib/eventHub';
-
-    import Live from './screens/Live.vue';
-    import Medias from './screens/Medias.vue';
-    import SocialMediaOverview from './screens/SocialMediaOverview.vue';
-    import Campaign from './screens/Campaign.vue';
-    import MediasWithImage from './screens/MediasWithImage.vue';
+    import eventHub from './lib/eventHub';
 
     export default {
         props: {
@@ -42,11 +36,6 @@
         },
 
         components: {
-            Live,
-            Medias,
-            SocialMediaOverview,
-            Campaign,
-            MediasWithImage,
         },
 
         data() {

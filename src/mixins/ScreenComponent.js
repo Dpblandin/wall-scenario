@@ -2,6 +2,7 @@ import eventHub from '../lib/eventHub';
 import AssetResolver from './AssetResolver';
 
 export default {
+    name: 'Screenable',
     mixins: [
         AssetResolver,
     ],

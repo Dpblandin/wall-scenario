@@ -15,6 +15,8 @@
     import eventHub from './lib/eventHub';
 
     export default {
+        name: 'Scenario',
+
         props: {
             scenario: {
                 required: true,
@@ -76,6 +78,7 @@
         created() {
             eventHub.$on('component-loaded', this.onComponentLoaded);
         },
+
         mounted() {
             if (this.reloadAfter > 0) {
                 setTimeout(()=> window.location.reload(), this.reloadAfter)

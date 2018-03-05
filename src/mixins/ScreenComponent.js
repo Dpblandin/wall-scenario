@@ -1,5 +1,8 @@
 import eventHub from '../lib/eventHub';
+import { apiProxy } from "../lib/apiProxy";
 import AssetResolver from './AssetResolver';
+
+let screenProxy = null;
 
 export default {
     name: 'Screenable',
@@ -46,6 +49,8 @@ export default {
     },
 
     created() {
+        screenProxy = apiProxy(this, this.isFake);
+
         if (typeof this.start !== 'function') {
             console.warn(`${this.$options._componentTag} : when using ScreenComponent mixin, you need to implement start() in ${this.$options._componentTag} component methods`);
         }
@@ -69,11 +74,7 @@ export default {
 
     methods: {
         fetchData() {
-            if (this.isFake) {
-                return this.fetchFakeData();
-            }
-
-            return axios.get(this.screenUrl)
+            return screenProxy.screenUrl
                 .then(({ data }) => {
                     if (typeof this.onDataFetched !== 'function') {
                         return console.warn(`${this.$options._componentTag} : when using ScreenComponent mixin, you need to implement onDataFetched(data) in ${this.$options._componentTag} component methods`);
@@ -83,7 +84,7 @@ export default {
                     this.onDataFetched(data.data);
 
                     eventHub.$emit('component-loaded');
-                    if (this.isTesting === 'component') {
+                    if (this.isTesting === 'component' || this.isFake) {
                         return this.start();
                     }
 
